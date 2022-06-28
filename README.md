@@ -25,3 +25,23 @@
 - [ ] 転送してほしいボイスチャンネルが指定してなかったら、どこに飛ばすかプルダウンで聞いてくれる
 - [ ] 次回以降はそのチャンネルに自動で飛ばしてくれる
 - [ ] & more
+
+# Bot の使い方
+
+**コマンドなど**
+整備中。
+
+**必要な権限**
+
+- General permissions
+  - View Channels
+- Text permissions
+  - Send Messages
+  - Read Message History
+- Voice permissions
+  - Connect
+  - Mute Members
+  - Move Members
+
+**招待リンク**
+[多分これ。](https://discord.com/oauth2/authorize?client_id=INSERT_CLIENT_ID_HERE&scope=bot&permissions=22088704)
