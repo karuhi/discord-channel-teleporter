@@ -1,10 +1,16 @@
-import { Message, Client } from 'discord.js'
+import { Message, Client, VoiceState } from 'discord.js'
 import dotenv from 'dotenv'
 
 dotenv.config()
 
+const ENV = {
+  channelId: process.env.WATCH_CHANNEL_ID,
+  token: process.env.TOKEN,
+  targetChannel: process.env.TELEPORT_TARGET_CHANNEL || ''
+}
+
 const client = new Client({
-  intents: ['GUILDS', 'GUILD_MEMBERS', 'GUILD_MESSAGES']
+  intents: ['GUILDS', 'GUILD_MEMBERS', 'GUILD_MESSAGES', 'GUILD_VOICE_STATES'], 
 })
 
 client.once('ready', () => {
@@ -20,4 +26,17 @@ client.on('messageCreate', async (message: Message) => {
   }
 })
 
-client.login(process.env.TOKEN)
+client.on('voiceStateUpdate', (oldState:VoiceState, newState:VoiceState) => {
+  console.log("voice state Updated")
+  const watchTarget = ENV.channelId;
+  if (!oldState && !newState) return
+
+  // 振り分け用チャンネルに入ったら
+  if (newState.channelId === watchTarget) {
+    if (oldState.member === null) return
+    console.log(`> 参加 - ${oldState.member.user.tag}さんが入室しました。`)
+    oldState.member.voice.setChannel(ENV.targetChannel)
+  }  
+});
+
+client.login(ENV.token)
