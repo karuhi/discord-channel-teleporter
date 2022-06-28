@@ -43,5 +43,7 @@
   - Mute Members
   - Move Members
 
+基本的にVoice ChannelsとText操作のみ。
+
 **招待リンク**
-[多分これ。](https://discord.com/oauth2/authorize?client_id=INSERT_CLIENT_ID_HERE&scope=bot&permissions=22088704)
+[多分これ。](https://discord.com/oauth2/authorize?client_id=クライアントはまだ非公開♡&scope=bot&permissions=8653899808)
