@@ -40,4 +40,5 @@ test/*.js
 *.map
 
 .env
+.env.*
 build/*

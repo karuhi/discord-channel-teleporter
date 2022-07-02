@@ -26,6 +26,13 @@
 - [ ] 次回以降はそのチャンネルに自動で飛ばしてくれる
 - [ ] & more
 
+# Packages
+- PlanetScale
+- prisma
+- TypeScript
+- Node.js
+- discord.js
+
 # Bot の使い方
 
 **コマンドなど**

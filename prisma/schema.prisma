@@ -1,0 +1,22 @@
+generator client {
+  provider        = "prisma-client-js"
+  previewFeatures = ["referentialIntegrity"]
+}
+
+datasource db {
+  provider             = "mysql"
+  url                  = env("DATABASE_URL")
+  referentialIntegrity = "prisma"
+}
+
+model users {
+  id      Int    @id @default(autoincrement())
+  user_id String @unique(map: "user_id") @db.VarChar(255)
+  team_id Int
+}
+
+model channels {
+  id         Int    @id @default(autoincrement())
+  team_id    Int    @unique(map: "team_id")
+  channel_id String @unique(map: "channel_id") @db.VarChar(255)
+}
