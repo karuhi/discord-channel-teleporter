@@ -22,5 +22,16 @@ export async function getUserById(user_id: any): Promise<any> {
 
 // Userを追加する
 export async function addUser(user: Prisma.usersCreateInput): Promise<void> {
-  await prisma.users.create({ data: user })
+  await prisma.users.upsert({
+    where: {
+      user_id: user.user_id
+    },
+    update: {
+      team_id: user.team_id
+    },
+    create: {
+      user_id: user.user_id,
+      team_id: user.team_id
+    }
+  })
 }

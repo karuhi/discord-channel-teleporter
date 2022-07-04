@@ -1,11 +1,15 @@
-import { VoiceState } from 'discord.js'
-import { getChannelByChannelId, getChannels } from '../db/Channels'
+import { VoiceState, Client } from 'discord.js'
+import {
+  getChannelByChannelId,
+  getChannelByTeamId,
+  getChannels
+} from '../db/Channels'
 import { getUserById } from '../db/Users'
 export async function eventVoiceStateUpdate(
   oldState: VoiceState,
   newState: VoiceState
 ) {
-  console.log('💭 [チャンネル] voiceStateUpdate')
+  console.log('💭 [チャンネル] 音声ステート更新')
   // DBのチャンネルデータと整合する
 
   // すべてのチャンネル
@@ -32,9 +36,13 @@ export async function eventVoiceStateUpdate(
           const user = await getUserById(oldState.member.user.id)
           if (user) {
             console.log('user存在、チャンネルに転送します。')
-            // oldState.member.voice.setChannel(ENV.focusChannel)
+            const moveChannel = await getChannelByTeamId(user.team_id)
+            oldState.member.voice.setChannel(moveChannel.channel_id)
           } else {
             console.log('user不在、アカウント作成フローに進みます。')
+            await focusChannel.send({
+              content: `これ、${oldState.member.user}さんの移動先チャンネル、設定できてないやつやな。\n \`\`\`/setchannel\`\`\` って入力欄に打ってみたらええんやない？`
+            })
           }
         }
       }

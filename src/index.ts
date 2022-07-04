@@ -1,8 +1,9 @@
-import { Message, Client, VoiceState } from 'discord.js'
+import { Client, Interaction, VoiceState } from 'discord.js'
 import dotenv from 'dotenv'
 import { eventMessageCreate } from './events/Message'
 import { eventReady } from './events/System'
 import { eventVoiceStateUpdate } from './events/Voice'
+import { onInteraction } from './events/Interaction'
 
 const environment = process.env.NODE_ENV
 dotenv.config({ path: `.env.${environment}` })
@@ -34,6 +35,9 @@ class Main {
       'voiceStateUpdate',
       (oldState: VoiceState, newState: VoiceState) =>
         eventVoiceStateUpdate(oldState, newState)
+    )
+    this.client.on('interactionCreate', (interaction: Interaction) =>
+      onInteraction(interaction)
     )
 
     this.client.login(process.env.TOKEN).catch((error) => {
