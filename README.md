@@ -20,37 +20,42 @@
 
 # 機能（予定）
 
-- [x] 特定のボイスチャンネルに入室すると、指定のボイスチャンネルに転送してくれる
-- [ ] 転送してほしいボイスチャンネルを指定できる
-- [ ] 転送してほしいボイスチャンネルが指定してなかったら、どこに飛ばすかプルダウンで聞いてくれる
-- [ ] 次回以降はそのチャンネルに自動で飛ばしてくれる
+- [x] 特定のボイスチャンネルに入室すると、設定したボイスチャンネルに転送してくれる
+- [x] スラッシュコマンドで転送先ボイスチャンネルを設定できる
+- [x] 転送先ボイスチャンネルが設定されてなかったら設定をリマインドしてくれる
+- [x] 次回以降（設定済みの場合）は設定したチャンネルに自動で飛ばしてくれる
 - [ ] & more
 
 # Packages
-- PlanetScale
-- prisma
+- PlanetScale (MySQL)
+- Prisma Client
 - TypeScript
 - Node.js
 - discord.js
 
 # Bot の使い方
 
-**コマンドなど**
-整備中。
+**コマンド**
+
+```
+/setchannel チャンネル名
+```
 
 **必要な権限**
 
 - General permissions
-  - View Channels
+  - Manage Server
+  - Manage Events
 - Text permissions
   - Send Messages
-  - Read Message History
 - Voice permissions
   - Connect
+  - Use Voice Activity
   - Mute Members
+  - Deafen Members
   - Move Members
 
 基本的にVoice ChannelsとText操作のみ。
 
 **招待リンク**
-[多分これ。](https://discord.com/oauth2/authorize?client_id=クライアントはまだ非公開♡&scope=bot&permissions=8653899808)
+[多分これ。](https://discord.com/oauth2/authorize?client_id=クライアントはまだ非公開♡&scope=bot&permissions=8653899808&scope=bot%20applications.commands)
