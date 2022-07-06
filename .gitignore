@@ -42,3 +42,6 @@ test/*.js
 .env
 .env.*
 build/*
+
+newrelic.js
+newrelic_agent.log

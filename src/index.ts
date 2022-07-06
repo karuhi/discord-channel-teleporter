@@ -1,5 +1,8 @@
 import { Client, Interaction, VoiceState } from 'discord.js'
 import dotenv from 'dotenv'
+
+require('newrelic')
+
 import { eventMessageCreate } from './events/Message'
 import { eventReady } from './events/System'
 import { eventVoiceStateUpdate } from './events/Voice'

@@ -27,6 +27,7 @@
   "dependencies": {
     "@prisma/client": "^4.0.0",
     "discord.js": "^13.8.1",
-    "dotenv": "^16.0.1"
+    "dotenv": "^16.0.1",
+    "newrelic": "^8.14.1"
   }
 }
