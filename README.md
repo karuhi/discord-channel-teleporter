@@ -18,7 +18,21 @@
 
 ということで、某 Bot を~~パクって~~思想を受け継いで、便利そうな Bot を犬山さんがやってくれます。
 
-# 機能（予定）
+## Bot について
+### Bot の導入方法
+
+1. Discordサーバーに [Botを追加する](https://discord.com/oauth2/authorize?client_id=クライアントはまだ非公開♡&scope=bot&permissions=8653899808&scope=bot%20applications.commands)
+2. チャンネルを作成する（例の名前：参加でチームに移動）
+
+### Bot の使用方法
+
+1. チャンネルに参加する
+2. 既に転送先チャンネルが指定されているか
+   1. されていない場合：音声チャンネルのテキストチャンネルに @メンション で登録してない旨が通知されます。
+   2. されている場合：転送先チャンネルに転送されます
+
+
+## 機能（予定）
 
 - [x] 特定のボイスチャンネルに入室すると、設定したボイスチャンネルに転送してくれる
 - [x] スラッシュコマンドで転送先ボイスチャンネルを設定できる
@@ -26,22 +40,15 @@
 - [x] 次回以降（設定済みの場合）は設定したチャンネルに自動で飛ばしてくれる
 - [ ] & more
 
-# Packages
+## Packages
+
 - PlanetScale (MySQL)
 - Prisma Client
 - TypeScript
 - Node.js
 - discord.js
 
-# Bot の使い方
-
-**コマンド**
-
-```
-/setchannel チャンネル名
-```
-
-**必要な権限**
+## 必要な権限
 
 - General permissions
   - Manage Server
@@ -57,5 +64,3 @@
 
 基本的にVoice ChannelsとText操作のみ。
 
-**招待リンク**
-[多分これ。](https://discord.com/oauth2/authorize?client_id=クライアントはまだ非公開♡&scope=bot&permissions=8653899808&scope=bot%20applications.commands)
