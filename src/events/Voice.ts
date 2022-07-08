@@ -37,7 +37,13 @@ export async function eventVoiceStateUpdate(
           if (user) {
             console.log('user存在、チャンネルに転送します。')
             const moveChannel = await getChannelByTeamId(user.team_id)
-            oldState.member.voice.setChannel(moveChannel.channel_id)
+            if (user[0].team_id !== 0) {
+              oldState.member.voice.setChannel(moveChannel.channel_id)
+            } else {
+              await focusChannel.send({
+                content: `これ、${oldState.member.user}さんの移動先チャンネル、設定できてないやつやな。\n \`\`\`/setchannel\`\`\` って入力欄に打ってみたらええんやない？`
+              })
+            }
           } else {
             console.log('user不在、アカウント作成フローに進みます。')
             await focusChannel.send({
