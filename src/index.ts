@@ -9,7 +9,7 @@ import { eventVoiceStateUpdate } from './events/Voice'
 import { onInteraction } from './events/Interaction'
 
 const environment = process.env.NODE_ENV
-dotenv.config({ path: __dirname + `.env.${environment}` })
+dotenv.config({ path: `.env.${environment}` })
 
 class Main {
   private readonly client: Client
