@@ -28,7 +28,7 @@ export async function eventVoiceStateUpdate(
     // 対象のチャンネル情報をDiscordから取得する
     // 参加するのか退出するのかで処理を分ける
     if (focusChannel && focusChannel.isText()) {
-      if (oldState.channelId === null && newState.channelId !== null) {
+      if (newState.channelId !== null) {
         // テレポート部屋に入ってきたら
         if (newState.channelId == teleporterChannel.channel_id) {
           focusChannel.send(`**参加** > ${oldState.member.user.tag}`)
