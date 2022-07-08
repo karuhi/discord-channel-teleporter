@@ -14,4 +14,5 @@ export async function setIniatialChannelSetting() {
   for (let i = 0; i < channels.length; i++) {
     await addChannel(i, channels[i] || '')
   }
+  console.log('⚒️ [チャンネル] 初期設定完了')
 }
