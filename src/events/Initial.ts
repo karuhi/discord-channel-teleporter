@@ -1,6 +1,4 @@
 import { getChannels, addChannel } from '../db/Channels'
-// 全部のチャンネル数
-const FULL_CHANNEL_COUNT = 5
 // 初期チャンネル設定を行う
 export async function setIniatialChannelSetting() {
   console.log('⚒️ [チャンネル] 初期設定')
