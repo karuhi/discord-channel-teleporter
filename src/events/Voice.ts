@@ -37,7 +37,7 @@ export async function eventVoiceStateUpdate(
           if (user) {
             console.log('user存在、チャンネルに転送します。')
             const moveChannel = await getChannelByTeamId(user.team_id)
-            if (user[0].team_id !== 0) {
+            if (user.team_id !== 0) {
               oldState.member.voice.setChannel(moveChannel.channel_id)
             } else {
               await focusChannel.send({
