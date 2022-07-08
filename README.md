@@ -47,6 +47,7 @@
 - TypeScript
 - Node.js
 - discord.js
+- dotenv-cli
 
 ## 必要な権限
 
